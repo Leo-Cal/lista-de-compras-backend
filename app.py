@@ -5,6 +5,7 @@ from flask_restful import Api
 from lista.resources.item_resource import ItemResource, ItensResource
 from lista.resources.usuario_resource import UsuarioResource,UsuariosResource
 from lista.resources.lista_resource import ListaResource, ListasResource
+from lista.resources.aluno_resource import AlunoResource, AlunosResource
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///banco.db'
@@ -32,6 +33,7 @@ api.add_resource(ListasResource, '/listas')
 api.add_resource(ListaResource, '/lista','/lista/<string:lista>')
 api.add_resource(UsuarioResource,'/usuario','/usuario/<string:nome>')
 api.add_resource(UsuariosResource, '/usuarios')
+api.add_resource(AlunosResource, '/aluno')
 
 if __name__ == '__main__':
     from dao import db
